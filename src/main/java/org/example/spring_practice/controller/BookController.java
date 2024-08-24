@@ -23,12 +23,12 @@ public class BookController {
     }
 
     @PostMapping("/books")
-    public Book create(@RequestBody Book book) throws InvalidIsbnException, InvalidTitleException, InvalidPublishedDateException {
-        if (book.getIsbn().isBlank() || book.getIsbn().equals(null)) {
+    public Book create(@RequestBody Book book) {
+        if (book.getIsbn() == null || book.getIsbn().isBlank()) {
             throw new InvalidIsbnException("isbn не может быть пустым или null");
-        } else if (book.getTitle().isBlank() || book.getTitle().equals(null)) {
+        } else if (book.getTitle() == null || book.getTitle().isBlank()) {
             throw new InvalidTitleException("title не может быть пустым или null");
-        } else if (book.getPublishedDate().isAfter(LocalDate.now()) || book.getPublishedDate().equals(null)) {
+        } else if (book.getPublishedDate() == null || book.getPublishedDate().isAfter(LocalDate.now())) {
             throw new InvalidPublishedDateException("день публикаций не может быть в будущем или null");
         }
 
