@@ -1,12 +1,7 @@
 package org.example.spring_practice.exception;
 
-public class InvalidIsbnException extends Exception {
+public class InvalidIsbnException extends RuntimeException {
     public InvalidIsbnException(String message) {
         super(message);
-    }
-
-    @Override
-    public String getMessage() {
-        return super.getMessage();
     }
 }
