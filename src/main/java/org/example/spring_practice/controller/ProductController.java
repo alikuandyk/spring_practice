@@ -20,11 +20,6 @@ public class ProductController {
             new Product("Клубника", 3_000)
     );
 
-    //    /products?from=900&to=1300
-    //    /products?from=900
-    //    /products?to=1300
-    //    /products
-
     @GetMapping("/products")
     public List<Product> getProducts(@RequestParam(required = false) Integer from, @RequestParam(required = false) Integer to) {
         return products.stream()

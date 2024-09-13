@@ -1,5 +1,6 @@
 package org.example.spring_practice.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.spring_practice.model.Post;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +11,8 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 @RestController
+@Slf4j
 public class PostController {
-    private static final Logger log = (Logger) LoggerFactory.getLogger(PostController.class);
     List<Post> posts = new ArrayList<>();
 
     @GetMapping("/posts")
